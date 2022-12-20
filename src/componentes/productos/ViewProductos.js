@@ -16,7 +16,7 @@ export const ViewProductos = ({ producto }) => {
 
     }
 
-    const eliminarProducto = async (e, idProducto) => {
+    const eliminarProducto = async (e, idCategoria) => {
         swal({
             title: "Esta seguro de eliminar el producto",
             text: "Una vez eliminado no podra ser recuperado",
@@ -27,7 +27,7 @@ export const ViewProductos = ({ producto }) => {
             .then((willDelete) => {
                 if (willDelete) {
                     e.preventDefault();
-                    const response = crud.DELETE(`/api/productos/${idProducto}`);
+                    const response = crud.DELETE(`/api/productos/${idCategoria}`);
                     //console.log(response.msg);
                     const mensaje = response.msg;
                     if (response) {

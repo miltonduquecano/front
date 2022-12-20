@@ -11,8 +11,8 @@ const ActualizarProductos = () => {
 
   const navigate = useNavigate();
 
-  const { idProducto, idCategoria} = useParams();
-  console.log(idProducto);
+  const { idCategoria} = useParams();
+  console.log(idCategoria);
 
   const [productos, setProductos] = useState([]);
 
@@ -54,9 +54,9 @@ const ActualizarProductos = () => {
       stock: categoria.stock,
       precio: categoria.precio,
       imagen: categoria.imagen,
-      categoriaId: idCategoria
+      //categoriaId: idCategoria
     }
-    const response = await crud.PUT(`/api/productos/${idProducto}`, data);
+    const response = await crud.PUT(`/api/productos/${idCategoria}`, data);
     const mensaje = "El producto se actualizo correctamente";
     swal({
       title: 'Informacion',
@@ -74,7 +74,7 @@ const ActualizarProductos = () => {
       }
     });
     //redireccionar a la pagina de admin 
-    navigate(`/home-productos/${idCategoria}`);
+    //navigate(`/home-productos/${idCategoria}`);
 
   };
   const onSubmit = (e) => {
