@@ -7,7 +7,7 @@ const Home = () => {
   const [categoria, setCategoriaHome] = useState([]);
 
   const cargarCategoriasHome = async () =>{
-    const response = await crud.GET(`/api/categorias`);
+    const response = await crud.GET(`/api/categorias/home`);
     setCategoriaHome(response.categoria);
   }
   useEffect(()=>{
@@ -43,7 +43,7 @@ const Home = () => {
       <div className="py-16 sm:py-24 xl:mx-auto xl:max-w-7xl xl:px-8">
         <div className="px-4 sm:flex sm:items-center sm:justify-between sm:px-6 lg:px-8 xl:px-0">
           <h2 className="text-2xl font-bold tracking-tight text-amber-200">Comprar por categoria</h2>
-          <a  className="hidden text-sm font-semibold text-amber-200 hover:text-indigo-500 sm:block">
+          <a href="#" className="hidden text-sm font-semibold text-amber-200 hover:text-indigo-500 sm:block">
             Todas las categorias
             <span aria-hidden="true"> &rarr;</span>
           </a>
