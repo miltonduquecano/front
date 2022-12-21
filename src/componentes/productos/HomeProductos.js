@@ -38,7 +38,7 @@ const HomeProductos = () => {
                     </div>
                     <div className="p-10">
                         < Link to={`/crear-producto/${idCategoria}`}
-                            className="bg-violet-600 x-full p-3 text white uppercase font-bold mt-5 text-center rounded-lg"
+                            className="bg-teal-400 x-full p-3 text white uppercase font-bold mt-5 text-center rounded-lg"
 
                         >
                             Crear Producto

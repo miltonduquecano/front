@@ -4,14 +4,14 @@ import crud from "../conexiones/crud";
 
 const Home = () => {
 
-  const [categoria, setCategoria] = useState([]);
+  const [categoria, setCategoriaHome] = useState([]);
 
-  const cargarCategorias = async () =>{
+  const cargarCategoriasHome = async () =>{
     const response = await crud.GET(`/api/categorias`);
-    setCategoria(response.categoria);
+    setCategoriaHome(response.categoria);
   }
   useEffect(()=>{
-    cargarCategorias();
+    cargarCategoriasHome();
   },[]);
   
   const [productos, setProductos] = useState([]);
@@ -30,20 +30,20 @@ const Home = () => {
       <main className='flex-1'>
       <div className='flex justify-between text-center md:w-2/3 lg:w-2/5'>
       <h1 className="inline  bg-gradient-to-r from-amber-300 via-green-300 to-cyan-500 bg-clip-text font-display text-5xl tracking-tight text-transparent"
-      >Compras online Dimon</h1>
+      >BuyAkki</h1>
      
     <Link
-    className="block text-end my-5 text-sky-300"
+    className=" text-right justify-items-end my-5 text-sky-500"
     to={"/login"}
     >
       Iniciar Sesion
     </Link>
       </div>
-      <div className="flex-1 bg-white">
+      <div className="flex-1 bg-blue-300 outline outline-offset-2 outline-emerald-500">
       <div className="py-16 sm:py-24 xl:mx-auto xl:max-w-7xl xl:px-8">
         <div className="px-4 sm:flex sm:items-center sm:justify-between sm:px-6 lg:px-8 xl:px-0">
-          <h2 className="text-2xl font-bold tracking-tight text-gray-900">Comprar por categoria</h2>
-          <a  className="hidden text-sm font-semibold text-indigo-600 hover:text-indigo-500 sm:block">
+          <h2 className="text-2xl font-bold tracking-tight text-amber-200">Comprar por categoria</h2>
+          <a  className="hidden text-sm font-semibold text-amber-200 hover:text-indigo-500 sm:block">
             Todas las categorias
             <span aria-hidden="true"> &rarr;</span>
           </a>
@@ -75,7 +75,7 @@ const Home = () => {
         </div>
 
         <div className="mt-6 px-4 sm:hidden">
-          <a href="#" className="block text-sm font-semibold text-indigo-600 hover:text-indigo-500">
+          <a href="#" className="block text-sm font-semibold text-amber-200 hover:text-indigo-500">
             Ver todas las categorias 
             <span aria-hidden="true"> &rarr;</span>
           </a>
@@ -83,9 +83,9 @@ const Home = () => {
       </div>
     </div>
 
-    <div className="bg-gray-300">
+    <div className="bg-teal-500">
       <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
-        <h2 className="text-xl font-bold text-gray-900">Productos sugeridos</h2>
+        <h2 className="text-xl font-bold text-amber-200">Productos sugeridos</h2>
 
         <div className="mt-8 grid grid-cols-1 gap-y-12 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-4 xl:gap-x-8">
           {productos.map((product) => (

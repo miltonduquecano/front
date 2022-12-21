@@ -4,32 +4,32 @@ import Sidebar from "../Sidebar";
 import { useNavigate, useParams } from 'react-router-dom';
 import crud from '../../conexiones/crud';
 import swal from 'sweetalert';
-import ViewProductos from "../../componentes/productos/ViewProductos"
+
 
 
 const ActualizarProductos = () => {
 
   const navigate = useNavigate();
 
-  const { idCategoria} = useParams();
-  console.log(idCategoria);
+  const { idProducto, idCategoria} = useParams();
+  //console.log(idProducto);
 
-  const [productos, setProductos] = useState([]);
+  //const [productos, setProductos] = useState([]);
 
-  const [categoria, setCategoria] = useState({
+  const [producto,setProducto] = useState({
     nombre: '',
     descripcion: '',
     stock: '',
     precio: '',
     imagen: '',
-    categoriaId: ''
+    categoriaId: '',
 
   });
 
   /*const cargarProducto = async () => {
     const response = await crud.GET(`/api/productos/${idProducto}`);
     console.log(response);
-    setCategoria(response.categoria);
+    setProducto(response.producto);
   }
   useEffect(() => {
     cargarProducto();
@@ -37,11 +37,11 @@ const ActualizarProductos = () => {
 
 
 
-  const { nombre, descripcion, stock, precio, imagen } = categoria;
+  const { nombre, descripcion, stock, precio, imagen } = producto;
 
   const onChange = (e) => {
-    setCategoria({
-      ...categoria,
+    setProducto({
+      ...producto,
       [e.target.name]: e.target.value
 
     })
@@ -49,14 +49,15 @@ const ActualizarProductos = () => {
 
   const actualizarProductos = async () => {
     const data = {
-      nombre: categoria.nombre,
-      descripcion: categoria.descripcion,
-      stock: categoria.stock,
-      precio: categoria.precio,
-      imagen: categoria.imagen,
-      //categoriaId: idCategoria
+      nombre: producto.nombre,
+      descripcion: producto.descripcion,
+      stock: producto.stock,
+      precio: producto.precio,
+      imagen: producto.imagen,
+      categoriaId: idCategoria
+      
     }
-    const response = await crud.PUT(`/api/productos/${idCategoria}`, data);
+    const response = await crud.PUT(`/api/productos/${idProducto}`, data);
     const mensaje = "El producto se actualizo correctamente";
     swal({
       title: 'Informacion',
@@ -74,7 +75,7 @@ const ActualizarProductos = () => {
       }
     });
     //redireccionar a la pagina de admin 
-    //navigate(`/home-productos/${idCategoria}`);
+    navigate(`/home-productos/${idCategoria}`);
 
   };
   const onSubmit = (e) => {
@@ -92,7 +93,7 @@ const ActualizarProductos = () => {
         <Sidebar />
         <main className="flex-1">
           <div className="mt-5 flex justify-center">
-            <h1 className="inline bg-gradient-to-r from-indigo-200 via-violet-700 to-indigo-200 bg-clip-text font-display text-5xl tracking-tight text-transparent">Actualizar productos</h1>
+            <h1 className="inline  bg-gradient-to-r from-amber-300 via-green-300 to-cyan-500 bg-clip-text font-display text-5xl tracking-tight text-transparent">Actualizar productos</h1>
           </div>
 
           <div className="mt-10 flex justify-center">
@@ -103,10 +104,10 @@ const ActualizarProductos = () => {
               <div className="my-5">
                 <label className="uppercase text-gray-600 block text-lx font-bold">Nombre</label>
                 <input
-                  type="nombre"
+                  type="text"
                   id="nombre"
                   name="nombre"
-                  placeholder="Producto "
+                  placeholder="nombre "
                   className="w-full mt-3 p-3 border rounded-xl bg-gray-400"
                   value={nombre}
                   onChange={onChange}
@@ -159,7 +160,7 @@ const ActualizarProductos = () => {
                 <input
                   type="submit"
                   value="Actualizar Producto"
-                  className=" my-5 bg-violet-600 mb-5 w-full py-3 text-white uppercase font-bold rounded hover:cursor-pointer hover:bg-indigo-400 transition-colors"
+                  className=" my-5 bg-teal-400 mb-5 w-full py-3 text-white uppercase font-bold rounded hover:cursor-pointer hover:bg-indigo-400 transition-colors"
                 />
 
 

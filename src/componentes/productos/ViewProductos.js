@@ -8,15 +8,15 @@ export const ViewProductos = ({ producto }) => {
     const navigate = useNavigate();
 
 
-    const { nombre, descripcion, stock, precio, imagen } = producto
+    const { nombre, descripcion, stock, precio, imagen } = producto;
 
-    const actualizarProductos = async (idProducto) => {
+    const actualizarProductos = async (e, idProducto) => {
 
         navigate(`/actualizar-producto/${idProducto}`)
 
     }
 
-    const eliminarProducto = async (e, idCategoria) => {
+    const eliminarProducto = async (e, idProducto) => {
         swal({
             title: "Esta seguro de eliminar el producto",
             text: "Una vez eliminado no podra ser recuperado",
@@ -27,7 +27,7 @@ export const ViewProductos = ({ producto }) => {
             .then((willDelete) => {
                 if (willDelete) {
                     e.preventDefault();
-                    const response = crud.DELETE(`/api/productos/${idCategoria}`);
+                    const response = crud.DELETE(`/api/productos/${idProducto}`);
                     //console.log(response.msg);
                     const mensaje = response.msg;
                     if (response) {
@@ -58,12 +58,12 @@ export const ViewProductos = ({ producto }) => {
 
             <div>
                 <button className="bg-pink-400 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
-                 onClick={(e) => actualizarProductos(e)}
+                 onClick={(e) => actualizarProductos(e, producto._id)}
                  >
                     Editar
                 </button>
                 <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
-                onClick={(e) => eliminarProducto(e)}>
+                onClick={(e) => eliminarProducto(e, producto._id)}>
                     Eliminar
                 </button>
 

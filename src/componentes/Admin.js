@@ -22,17 +22,17 @@ const Admin = () => {
     autenticarUsuario()
   }, [navigate]);//[] parentesis vacios se ejecuta solo una vez 
 
-  const [categorias, setCategorias] = useState([]);
+  const [categorias, setCategoriasAdmin] = useState([]);
 
-  const cargarCategorias = async () => {
+  const cargarCategoriasAdmin = async () => {
     const response = await crud.GET(`/api/categorias`);
     console.log(response);
-    setCategorias(response.categoria);
+    setCategoriasAdmin(response.categoria);
 
   }
 
   useEffect(() => {
-    cargarCategorias();
+    cargarCategoriasAdmin();
   }, []);
 
 
@@ -55,7 +55,7 @@ const Admin = () => {
               icon: "success",
             });
           }
-          cargarCategorias();
+          cargarCategoriasAdmin();
         } else {
           swal("Accion cancelada");
         }
@@ -104,7 +104,7 @@ const Admin = () => {
                           <input
                             type='submit'
                             value="Eliminar"
-                            className=" my-5 bg-violet-400 mb-5 w-full py-3 text-white uppercase font-bold rounded hover:cursor-pointer hover:bg-indigo-400 transition-colors"
+                            className=" my-5 bg-blue-400 mb-5 w-full py-3 text-white uppercase font-bold rounded hover:cursor-pointer hover:bg-indigo-400 transition-colors"
                             onClick={(e) => borrarCategoria(e, item._id)}
 
                           >
@@ -113,7 +113,7 @@ const Admin = () => {
                           <input
                             type='submit'
                             value="Actualizar"
-                            className=" my-5 bg-violet-400 mb-5 w-full py-3 text-white uppercase font-bold rounded hover:cursor-pointer hover:bg-indigo-400 transition-colors"
+                            className=" my-5 bg-blue-400 mb-5 w-full py-3 text-white uppercase font-bold rounded hover:cursor-pointer hover:bg-indigo-400 transition-colors"
                             onClick={(e) => actualizarCategoria(item._id)}
                           >
                           </input>
@@ -123,7 +123,7 @@ const Admin = () => {
                           <input
                             type='submit'
                             value="Crear producto"
-                            className=" my-5 bg-violet-400 mb-5 w-full py-3 text-white uppercase font-bold rounded hover:cursor-pointer hover:bg-indigo-400 transition-colors"
+                            className=" my-5 bg-blue-400 mb-5 w-full py-3 text-white uppercase font-bold rounded hover:cursor-pointer hover:bg-indigo-400 transition-colors"
                             onClick={(e) => crearProductos(item._id)}
 
                           >

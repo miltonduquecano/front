@@ -145,7 +145,7 @@ const CrearProductos = () => {
                                 <input
                                     type="submit"
                                     value="Crear Productos "
-                                    className=" my-5 bg-violet-600 mb-5 w-full py-3 text-white uppercase font-bold rounded hover:cursor-pointer hover:bg-indigo-400 transition-colors"
+                                    className=" my-5 bg-teal-400 mb-5 w-full py-3 text-white uppercase font-bold rounded hover:cursor-pointer hover:bg-indigo-400 transition-colors"
                                 />
 
 

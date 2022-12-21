@@ -8,7 +8,7 @@ const Sidebar = () => {
             
 
                 <Link
-                    className="bg-cyan-800 w-full p-3 text-white uppercase font-bold mt-5 text center rounded-lg"
+                    className="bg-teal-400 w-full p-3 text-white uppercase font-bold mt-5 text center rounded-lg"
                     to={"/crear-categoria"}
                 >Crear Categoria
                 </Link>
@@ -16,7 +16,7 @@ const Sidebar = () => {
                 <div className="py-10">
                     
                 <Link
-                    className="bg-cyan-800 w-full p-3 text-white uppercase font-bold mt-5 text center rounded-lg"
+                    className="bg-teal-400 w-full p-3 text-white uppercase font-bold mt-5 text center rounded-lg"
                     to={"/admin"}
                 >Admin Categoria 
                 </Link>
